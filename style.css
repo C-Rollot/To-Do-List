@@ -1,0 +1,39 @@
+html {
+    background-color: darkslategrey;
+}
+
+header {
+    text-align: center;
+    background-color: palegoldenrod;
+    font-family: Century Gothic;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+#list p {
+    font-family: Century Gothic;
+    background-color: palegoldenrod;
+    max-width: 750px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#list button {
+    max-width: 25px;
+    margin-left: 620px;
+    background-color: palegoldenrod;
+    border: 1px solid palegoldenrod;
+    border-radius: 5px;
+}
+
+#list button:hover {
+    background-color: darkslategrey;
+    color: white;
+    transition: 0.25s;
+}
