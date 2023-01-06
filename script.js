@@ -1,41 +1,48 @@
-//Fonction de création de tâche / Task creation function
-    function addTask() {
-        //Récupération des éléments HTML / HTML Elements recuperation
-        let input = document.getElementById("input").value;
-        let list = document.getElementById("list");
+const app = {
 
-        //Création de la tâche et des boutons / Creating new Task and buttons
-        let newTask = document.createElement("p");
-        let doneButton = document.createElement("button");
-        let deleteButton = document.createElement("button");
+    //Bouton de validation
+    submit : document.getElementById("add"),
+    
+        addTask : () => {
+            //Récupération des éléments HTML
+            let input = document.getElementById("input");
+            let list = document.getElementById("list");
 
-        newTask.innerHTML = input;
-        doneButton.innerHTML = "/";
-        deleteButton.innerHTML = "X";
+            //Création de la tâche et des boutons
+            let newTask = document.createElement("p");
+            let doneButton = document.createElement("button");
+            let deleteButton = document.createElement("button");
 
-        list.appendChild(newTask);
-        list.appendChild(doneButton);
-        list.appendChild(deleteButton);
+            newTask.textContent = input.value;
+            doneButton.textContent = "/";
+            deleteButton.textContent = "X";
 
-        //Fonction de surlignage des tâches / Task line-through function
-        function line_through() {
-            newTask.style.textDecoration = "line-through";
-        }
+            list.appendChild(newTask);
+            list.appendChild(doneButton);
+            list.appendChild(deleteButton);
 
-        //Fonction d'effacement des tâches / Task delete function
-        function delete_task() {
-            newTask.style.display = "none";
-            doneButton.style.display = "none";
-            deleteButton.style.display = "none";
-        }
+            input.value = "";
 
-        //Event listeners
-        doneButton.addEventListener("click", line_through);
-        deleteButton.addEventListener("click", delete_task);
+            //Fonction de surlignage des tâches
+            function line_through() {
+                newTask.style.textDecoration = "line-through";
+            }
+
+            //Fonction d'effacement des tâches
+            function delete_task() {
+                newTask.style.display = "none";
+                doneButton.style.display = "none";
+                deleteButton.style.display = "none";
+            }
+
+            //Event listeners
+            doneButton.addEventListener("click", line_through);
+            deleteButton.addEventListener("click", delete_task);
+        },
+
+    init : () => {
+        addTaskCallback : app.submit.addEventListener("click", app.addTask)
     }
+}
 
-//Bouton de validation / Submit button
-let submit = document.getElementById("add");
-
-//Event listener
-submit.addEventListener("click", addTask);
+app.init();
